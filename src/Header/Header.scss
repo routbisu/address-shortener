@@ -1,0 +1,39 @@
+@import '../scss/variables.scss';
+
+header {
+  margin-top: 10px;
+  padding: 20px;
+
+  .logo {
+    margin-left: 25px;
+    background: $logo-color;
+    color: $white;
+    padding: 6px 8px 6px 12px;
+    font-size: 12px;
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 0.4em;
+    border-radius: 2px;
+  }
+
+  nav {
+    float: right;
+
+    ul {
+      li {
+        display: inline;
+        a {
+          margin-right: 30px;
+          color: $text-color;
+          font-size: 12px;
+          text-transform: uppercase;
+          letter-spacing: 0.2em;
+          font-weight: 600;
+        }
+        a.active {
+          color: $logo-color;
+        }
+      }
+    }
+  }
+}
