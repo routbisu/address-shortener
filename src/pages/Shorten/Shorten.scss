@@ -1,0 +1,50 @@
+@import '../../scss/index.scss';
+
+.shorten-container {
+  margin: 15px;
+  margin-top: 25px;
+
+  form {
+    input {
+      border: 1px solid $light-grey-border;
+      box-sizing: border-box;
+      margin-bottom: 10px;
+      @include input-styles();
+
+      @media only screen and (min-width: 768px) {
+        font-size: 13px;
+      }
+    }
+
+    @media only screen and (min-width: 768px) {
+      input.input-40 {
+        width: 35%;
+        margin-right: 2%;
+      }
+
+      input.input-60 {
+        width: 63%;
+      }
+    }
+
+    button[type='submit'] {
+      @include input-styles();
+      color: $white;
+      background: $logo-color;
+      border: none;
+      padding: 15px;
+      font-weight: 600;
+
+      @media only screen and (min-width: 768px) {
+        font-size: 13px;
+        padding: 10px;
+      }
+    }
+  }
+
+  @media only screen and (min-width: 768px) {
+    width: 400px;
+    margin: auto;
+    margin-top: 30px;
+  }
+}
