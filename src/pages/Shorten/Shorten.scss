@@ -5,24 +5,15 @@
   margin-top: 25px;
 
   form {
-    input {
-      border: 1px solid $light-grey-border;
-      box-sizing: border-box;
-      margin-bottom: 10px;
-      @include input-styles();
-
-      @media only screen and (min-width: 768px) {
-        font-size: 13px;
-      }
-    }
-
     @media only screen and (min-width: 768px) {
-      input.input-40 {
+      .input-40 {
+        display: inline-block;
         width: 35%;
         margin-right: 2%;
       }
 
-      input.input-60 {
+      .input-60 {
+        display: inline-block;
         width: 63%;
       }
     }

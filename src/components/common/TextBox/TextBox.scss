@@ -1,0 +1,28 @@
+@import '../../../scss/index.scss';
+
+.textbox-container {
+  position: relative;
+
+  input {
+    border: 1px solid $light-grey-border;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+    outline: none;
+    color: $text-color;
+    @include input-styles();
+
+    @media only screen and (min-width: 768px) {
+      font-size: 13px;
+    }
+  }
+
+  .tiny-placeholder {
+    font-size: 10px;
+    position: absolute;
+    top: -8px;
+    left: 10px;
+    background: $white;
+    padding: 0px 3px;
+    color: $logo-color;
+  }
+}
