@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './Shorten.scss';
 import TextBox from '../../components/common/TextBox/TextBox';
+import { saveNewAddress } from '../../services/addressService';
 
 const Shorten = () => {
   const [formData, setFormData] = useState({});
@@ -36,6 +37,18 @@ const Shorten = () => {
   const submitForm = evt => {
     if (validateForm()) {
       // AJAX CALL
+      saveNewAddress(formData)
+        .then(res => {
+          console.log('res', res);
+          if (res.status === 201) {
+            setError('Your address handle is created!');
+            setFormData({ block: '' });
+          }
+        })
+        .catch(error => {
+          setError('The details could not be saved');
+          console.log('Error while saving', error);
+        });
       setError('');
     } else {
       // Show error message
@@ -44,6 +57,8 @@ const Shorten = () => {
 
     evt.preventDefault();
   };
+
+  console.log('formData', formData);
 
   return (
     <div className="shorten-container">
@@ -56,6 +71,7 @@ const Shorten = () => {
             placeholder="Block #"
             onTextChange={changeHandler}
             errored={erroredFields.block}
+            value={formData.block}
           />
         </div>
         <div className="input-60">
@@ -89,7 +105,6 @@ const Shorten = () => {
         <TextBox
           name="country"
           placeholder="Country"
-          onTextChange={changeHandler}
           value="Singapore"
           readOnly={true}
         />

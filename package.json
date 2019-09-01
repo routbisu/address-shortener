@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "axios": "^0.19.0",
     "node-sass": "^4.12.0",
     "prop-types": "^15.7.2",
     "react": "^16.9.0",
@@ -12,9 +13,11 @@
   },
   "scripts": {
     "start": "react-scripts start",
+    "start-dev": "concurrently \"react-scripts start\" \"npm run mock-api\"",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "mock-api": "json-server --watch db.json --port 3019"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -30,5 +33,9 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "concurrently": "^4.1.2",
+    "json-server": "^0.15.0"
   }
 }

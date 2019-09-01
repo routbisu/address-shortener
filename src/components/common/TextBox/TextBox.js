@@ -19,6 +19,12 @@ class TextBox extends Component {
     this.props.onTextChange(evt);
   };
 
+  componentWillReceiveProps = () => {
+    this.setState({
+      textValue: this.props.value
+    });
+  };
+
   render() {
     const { placeholder, name, readOnly, errored } = this.props;
     const { textValue } = this.state;
@@ -51,5 +57,5 @@ TextBox.propTypes = {
   onTextChange: PropTypes.func,
   value: PropTypes.string,
   readOnly: PropTypes.bool,
-  errored: PropTypes.any
+  errored: PropTypes.bool
 };

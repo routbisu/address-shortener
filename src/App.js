@@ -11,6 +11,9 @@ import Shorten from './pages/Shorten/Shorten';
 import Expand from './pages/Expand/Expand';
 
 function App() {
+  console.log('Environment', process.env.NODE_ENV);
+  console.log('Base Url', process.env.BASE_URL);
+
   return (
     <div className="main-container">
       <Router>

@@ -1,0 +1,93 @@
+{
+  "addresses": [
+    {
+      "block": "572",
+      "id": 1,
+      "area": "Upper Serangoon Rd",
+      "unit": "08-03",
+      "postcode": 534798,
+      "handle": "routbisu"
+    },
+    {
+      "block": "500",
+      "area": "Sran",
+      "unit": "08-12",
+      "building": "B1",
+      "postcode": "500123",
+      "handle": "handle1",
+      "id": 2
+    },
+    {
+      "block": "22",
+      "area": "12",
+      "unit": "12",
+      "building": "12",
+      "postcode": "12",
+      "handle": "1212",
+      "id": 3
+    },
+    {
+      "block": "234",
+      "area": "Bartley Rise",
+      "unit": "02-10",
+      "building": "Bartley Ridge",
+      "postcode": "534128",
+      "handle": "deepa1",
+      "id": 4
+    },
+    {
+      "block": "120",
+      "area": "223",
+      "unit": "232",
+      "building": "232",
+      "postcode": "232",
+      "handle": "2323",
+      "id": 5
+    },
+    {
+      "block": "121",
+      "area": "21",
+      "unit": "231",
+      "building": "23213",
+      "postcode": "2323",
+      "handle": "2323",
+      "id": 6
+    },
+    {
+      "block": "12",
+      "area": "12",
+      "unit": "23",
+      "building": "232",
+      "postcode": "232",
+      "handle": "2323",
+      "id": 7
+    },
+    {
+      "block": "1212",
+      "area": "1212",
+      "unit": "1212",
+      "building": "1212",
+      "postcode": "1212",
+      "handle": "121212",
+      "id": 8
+    },
+    {
+      "block": "sdd",
+      "area": "sdsdsdsdsdsdsd",
+      "unit": "3",
+      "building": "434",
+      "postcode": "34",
+      "handle": "3434",
+      "id": 9
+    },
+    {
+      "block": "sdsds",
+      "area": "2323",
+      "unit": "2323",
+      "building": "2323",
+      "postcode": "2323",
+      "handle": "232323",
+      "id": 10
+    }
+  ]
+}
