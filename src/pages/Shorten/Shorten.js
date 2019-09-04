@@ -17,6 +17,13 @@ const Shorten = () => {
     setErroredFields(currentErrorFields);
   };
 
+  // Address change handler
+  const addressChangeHandler = evt => {
+    const value = evt.target.value && evt.target.value.toString();
+    evt.target.value = value ? value.replace(' ', '') : '';
+    changeHandler(evt);
+  };
+
   const validateForm = () => {
     // Required fields
     const reqFields = ['block', 'area', 'postcode', 'handle'];
@@ -117,10 +124,13 @@ const Shorten = () => {
           value="Singapore"
           readOnly={true}
         />
+        <div className="spacer">
+          -- Enter a short handle for your address --
+        </div>
         <TextBox
           name="handle"
           placeholder="Address Handle"
-          onTextChange={changeHandler}
+          onTextChange={addressChangeHandler}
           errored={erroredFields.handle}
           value={formData.handle || ''}
         />
