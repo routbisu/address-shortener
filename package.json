@@ -13,7 +13,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "start-dev": "concurrently \"react-scripts start\" \"npm run mock-api\"",
+    "start-dev": "concurrently \"PORT=3020 react-scripts start\" \"npm run mock-api\"",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",

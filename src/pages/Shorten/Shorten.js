@@ -42,7 +42,14 @@ const Shorten = () => {
           console.log('res', res);
           if (res.status === 201) {
             setError('Your address handle is created!');
-            setFormData({ block: '' });
+            setFormData({
+              block: '',
+              area: '',
+              unit: '',
+              building: '',
+              postcode: '',
+              handle: ''
+            });
           }
         })
         .catch(error => {
@@ -58,8 +65,6 @@ const Shorten = () => {
     evt.preventDefault();
   };
 
-  console.log('formData', formData);
-
   return (
     <div className="shorten-container">
       {error ? <div className="error-message">{error}</div> : null}
@@ -71,7 +76,7 @@ const Shorten = () => {
             placeholder="Block #"
             onTextChange={changeHandler}
             errored={erroredFields.block}
-            value={formData.block}
+            value={formData.block || ''}
           />
         </div>
         <div className="input-60">
@@ -80,6 +85,7 @@ const Shorten = () => {
             placeholder="Area"
             onTextChange={changeHandler}
             errored={erroredFields.area}
+            value={formData.area || ''}
           />
         </div>
         <div className="input-40">
@@ -87,6 +93,7 @@ const Shorten = () => {
             name="unit"
             placeholder="Unit #"
             onTextChange={changeHandler}
+            value={formData.unit || ''}
           />
         </div>
         <div className="input-60">
@@ -94,6 +101,7 @@ const Shorten = () => {
             name="building"
             placeholder="Building Name"
             onTextChange={changeHandler}
+            value={formData.building || ''}
           />
         </div>
         <TextBox
@@ -101,6 +109,7 @@ const Shorten = () => {
           placeholder="PostCode"
           onTextChange={changeHandler}
           errored={erroredFields.postcode}
+          value={formData.postcode || ''}
         />
         <TextBox
           name="country"
@@ -113,6 +122,7 @@ const Shorten = () => {
           placeholder="Address Handle"
           onTextChange={changeHandler}
           errored={erroredFields.handle}
+          value={formData.handle || ''}
         />
         <button type="submit">Shorten!</button>
       </form>
