@@ -9,3 +9,9 @@ export const saveNewAddress = addressDetails => {
   const url = `${baseUrl}/addresses`;
   return axios.post(url, { ...addressDetails });
 };
+
+// Check if address handler already exists
+export const getAddressFromHandle = handle => {
+  const url = `${baseUrl}/addresses?handle=${handle}`;
+  return axios.get(url);
+};

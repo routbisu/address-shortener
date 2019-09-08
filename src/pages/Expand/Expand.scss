@@ -1,0 +1,55 @@
+@import '../../scss';
+
+.expand-container {
+  margin: 15px;
+  margin-top: 25px;
+
+  @media only screen and (min-width: 768px) {
+    width: 400px;
+    margin: auto;
+    margin-top: 30px;
+  }
+
+  .address-view {
+    margin: 10px 5px;
+    font-size: 13px;
+    line-height: 1.6em;
+    color: $text-color;
+    text-align: left;
+    @media only screen and (max-width: 767px) {
+      margin-top: 15px;
+      font-size: 18px;
+    }
+  }
+
+  form {
+    @media only screen and (min-width: 768px) {
+      .input-40 {
+        display: inline-block;
+        width: 35%;
+        margin-left: 2%;
+      }
+
+      .input-60 {
+        display: inline-block;
+        width: 63%;
+      }
+    }
+
+    button[type='submit'] {
+      @include input-styles();
+      color: $white;
+      background: $logo-color;
+      border: none;
+      padding: 15px;
+      font-weight: 600;
+      outline: none;
+      cursor: pointer;
+
+      @media only screen and (min-width: 768px) {
+        font-size: 13px;
+        padding: 9px;
+      }
+    }
+  }
+}

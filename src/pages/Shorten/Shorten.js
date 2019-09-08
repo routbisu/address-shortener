@@ -1,7 +1,10 @@
 import React, { useState } from 'react';
 import './Shorten.scss';
 import TextBox from '../../components/common/TextBox/TextBox';
-import { saveNewAddress } from '../../services/addressService';
+import {
+  saveNewAddress,
+  getAddressFromHandle
+} from '../../services/addressService';
 
 const Shorten = () => {
   const [formData, setFormData] = useState({});
@@ -43,27 +46,37 @@ const Shorten = () => {
 
   const submitForm = evt => {
     if (validateForm()) {
-      // AJAX CALL
-      saveNewAddress(formData)
-        .then(res => {
-          console.log('res', res);
-          if (res.status === 201) {
-            setError('Your address handle is created!');
-            setFormData({
-              block: '',
-              area: '',
-              unit: '',
-              building: '',
-              postcode: '',
-              handle: ''
+      // Check if handle is unique
+      getAddressFromHandle(formData.handle).then(res => {
+        if (res.data && res.data.length) {
+          // Handle is duplicate
+          setError(
+            'This address handle already exists. Please try another one!'
+          );
+        } else {
+          // AJAX CALL
+          saveNewAddress(formData)
+            .then(res => {
+              console.log('res', res);
+              if (res.status === 201) {
+                setError('Your address handle is created!');
+                setFormData({
+                  block: '',
+                  area: '',
+                  unit: '',
+                  building: '',
+                  postcode: '',
+                  handle: ''
+                });
+              }
+            })
+            .catch(error => {
+              setError('The details could not be saved');
+              console.log('Error while saving', error);
             });
-          }
-        })
-        .catch(error => {
-          setError('The details could not be saved');
-          console.log('Error while saving', error);
-        });
-      setError('');
+          setError('');
+        }
+      });
     } else {
       // Show error message
       setError('Please fill the missing fields');
@@ -75,7 +88,6 @@ const Shorten = () => {
   return (
     <div className="shorten-container">
       {error ? <div className="error-message">{error}</div> : null}
-
       <form onSubmit={submitForm}>
         <div className="input-40">
           <TextBox
@@ -117,6 +129,7 @@ const Shorten = () => {
           onTextChange={changeHandler}
           errored={erroredFields.postcode}
           value={formData.postcode || ''}
+          type="number"
         />
         <TextBox
           name="country"
