@@ -12,9 +12,8 @@ function App() {
         <Header />
         <Switch>
           <div style={{ textAlign: 'center', marginTop: 20 }}>
-            <Route path="/shorten" exact component={Shorten} />
-            <Route path="/expand" exact component={Expand} />
             <Route path="/" exact component={Shorten} />
+            <Route path="/expand" exact component={Expand} />
           </div>
         </Switch>
       </Router>
