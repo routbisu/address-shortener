@@ -17,7 +17,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "mock-api": "json-server --watch db.json --port 3019"
+    "mock-api": "json-server --watch db.json --port 3019",
+    "deploy": "npm run build && mv build/index.html build/200.html && surge build --domain address-shortener.surge.sh"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -36,6 +37,7 @@
   },
   "devDependencies": {
     "concurrently": "^4.1.2",
-    "json-server": "^0.15.0"
+    "json-server": "^0.15.0",
+    "surge": "^0.21.3"
   }
 }

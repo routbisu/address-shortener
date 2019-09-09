@@ -2,27 +2,21 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import './TextBox.scss';
 
-const TextBox = ({
-  value,
-  placeholder,
-  name,
-  readOnly,
-  errored,
-  onTextChange,
-  type
-}) => {
+const TextBox = props => {
   return (
     <div className="textbox-container">
-      {value ? <span className="tiny-placeholder">{placeholder}</span> : null}
+      {props.value ? (
+        <span className="tiny-placeholder">{props.placeholder}</span>
+      ) : null}
 
       <input
-        type={type || 'text'}
-        name={name}
-        placeholder={placeholder}
-        onChange={onTextChange}
-        readOnly={readOnly}
-        value={value}
-        className={errored ? 'errored' : null}
+        type={props.type || 'text'}
+        name={props.name}
+        placeholder={props.placeholder}
+        onChange={props.onTextChange}
+        readOnly={props.readOnly}
+        value={props.value}
+        className={props.errored ? 'errored' : null}
       />
     </div>
   );
